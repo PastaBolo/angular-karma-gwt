@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsUpdateKarmaConfig",
+  "title": "Update Karma Config Schema",
+  "type": "object",
+  "description": "Updates the default Karma config file set by the Angular Cli to integrate jasmine-given and mocha-reporter.",
+  "properties": {
+    "skipInstall": {
+      "description": "When true, does not install dependency packages.",
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

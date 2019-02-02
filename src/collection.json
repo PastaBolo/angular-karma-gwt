@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "update-karma-config": {
+      "description": "Updates the default karma config",
+      "factory": "./update-karma-config",
+      "schema": "./update-karma-config/schema.json"
+    }
+  }
+}
