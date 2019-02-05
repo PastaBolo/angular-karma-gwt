@@ -10,13 +10,10 @@ import {
   move
 } from '@angular-devkit/schematics'
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks'
-import {
-  addPackageJsonDependency,
-  NodeDependency,
-  NodeDependencyType
-} from '@schematics/angular/utility/dependencies'
+import { NodeDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies'
 
 import { Schema as UpdateKarmaConfigOptions } from './schema'
+import { addPackageJsonDependencies } from '../utility/dependencies'
 
 export default function(options: UpdateKarmaConfigOptions): Rule {
   return (_tree: Tree, _context: SchematicContext) => {
@@ -32,16 +29,14 @@ export default function(options: UpdateKarmaConfigOptions): Rule {
 }
 
 function addDependencies(): Rule {
-  return (tree: Tree, _context: SchematicContext) => {
-    const dependencies: NodeDependency[] = [
-      { name: 'jasmine-given', version: '*', type: NodeDependencyType.Dev },
-      { name: 'karma-jasmine-given', version: '*', type: NodeDependencyType.Dev },
-      { name: '@types/jasmine-given', version: '*', type: NodeDependencyType.Dev },
-      { name: 'karma-mocha-reporter', version: '*', type: NodeDependencyType.Dev },
-      { name: 'karma-jasmine-diff-reporter', version: '*', type: NodeDependencyType.Dev }
-    ]
-    dependencies.forEach(dependency => addPackageJsonDependency(tree, dependency))
-  }
+  const dependencies: NodeDependency[] = [
+    { name: 'jasmine-given', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-jasmine-given', version: '*', type: NodeDependencyType.Dev },
+    { name: '@types/jasmine-given', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-mocha-reporter', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-jasmine-diff-reporter', version: '*', type: NodeDependencyType.Dev }
+  ]
+  return addPackageJsonDependencies(dependencies)
 }
 
 function updateKarmaConfig(): Rule {

@@ -1,3 +1,3 @@
 export interface Schema {
-  skipInstall: boolean
+  skipInstall?: boolean
 }

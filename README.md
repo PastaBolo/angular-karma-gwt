@@ -18,12 +18,15 @@ ng new <my-workspace>
 ## 2 - Install the Schematics
 
 ```
+ng add angular-karma-gwt
+```
+
+And that's it ! Everything is set up
+
+### Or, without the `ng add` command
+
+```
 npm i -D angular-karma-gwt
-```
-
-## 3 - Usage
-
-```
 ng generate angular-karma-gwt:update-karma-config
 ```
 

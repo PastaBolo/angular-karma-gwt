@@ -1,8 +1,12 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
+    "ng-add": {
+      "description": "Download the collection of schematics and launch automatically update-karma-config.",
+      "factory": "./ng-add"
+    },
     "update-karma-config": {
-      "description": "Updates the default karma config",
+      "description": "Updates the default karma config.",
       "factory": "./update-karma-config",
       "schema": "./update-karma-config/schema.json"
     }
