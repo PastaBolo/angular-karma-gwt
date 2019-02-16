@@ -3,6 +3,7 @@
 Add automatically useful testing packages in an Angular workspace
 
 - [jasmine-given](https://github.com/searls/jasmine-given) : write your test with jasmine in BDD style with `Given, When, Then` functions
+- [jasmine-auto-spies](https://github.com/hirezio/jasmine-auto-spies) : create automatic spies from classes in Jasmine tests
 - [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter) : change the cli reporter
 
 ## 1 - Go in the Angular workspace
@@ -34,18 +35,19 @@ ng generate angular-karma-gwt:update-karma-config
 
 ## This schematic makes these steps automatically
 
-**NB** : This will replace the entire `karma.conf.js` file
+⚠️ **Warning** : This will replace the entire `karma.conf.js` file (every custom configuration added in the conf could disappear)
 
 1 - install packages
 
 - jasmine-given
 - karma-jasmine-given
 - @types/jasmine-given
+- jasmine-auto-spies
 - karma-mocha-reporter
 - karma-jasmine-diff-reporter
 
 ```
-npm i -D jasmine-given karma-jasmine-given @types/jasmine-given karma-mocha-reporter karma-jasmine-diff-reporter
+npm i -D jasmine-given karma-jasmine-given @types/jasmine-given jasmine-auto-spies karma-mocha-reporter karma-jasmine-diff-reporter
 ```
 
 2 - Add plugins in karma.conf.js

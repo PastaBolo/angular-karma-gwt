@@ -12,6 +12,7 @@
     "angular",
     "testing",
     "jasmine-given",
+    "jasmine-auto-spies",
     "mocha-reporter",
     "tdd",
     "bdd"

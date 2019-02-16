@@ -30,11 +30,12 @@ export default function(options: UpdateKarmaConfigOptions): Rule {
 
 function addDependencies(): Rule {
   const dependencies: NodeDependency[] = [
-    { name: 'jasmine-given', version: '*', type: NodeDependencyType.Dev },
-    { name: 'karma-jasmine-given', version: '*', type: NodeDependencyType.Dev },
     { name: '@types/jasmine-given', version: '*', type: NodeDependencyType.Dev },
-    { name: 'karma-mocha-reporter', version: '*', type: NodeDependencyType.Dev },
-    { name: 'karma-jasmine-diff-reporter', version: '*', type: NodeDependencyType.Dev }
+    { name: 'jasmine-auto-spies', version: '*', type: NodeDependencyType.Dev },
+    { name: 'jasmine-given', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-jasmine-diff-reporter', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-jasmine-given', version: '*', type: NodeDependencyType.Dev },
+    { name: 'karma-mocha-reporter', version: '*', type: NodeDependencyType.Dev }
   ]
   return addPackageJsonDependencies(dependencies)
 }
