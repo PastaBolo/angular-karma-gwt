@@ -35,7 +35,7 @@ ng generate angular-karma-gwt:update-karma-config
 
 ## This schematic makes these steps automatically
 
-⚠️ **Warning** : This will replace the entire `karma.conf.js` file (every custom configuration added in the conf could disappear)
+⚠️ **Warning** : This will replace the entire `karma.conf.js` file (every custom configuration added in the conf could disappear) (see this [issue](https://github.com/PastaBolo/angular-karma-gwt/issues/3))
 
 1 - install packages
 

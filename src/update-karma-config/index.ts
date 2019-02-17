@@ -13,19 +13,17 @@ import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks'
 import { NodeDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies'
 
 import { Schema as UpdateKarmaConfigOptions } from './schema'
-import { addPackageJsonDependencies } from '../utility/dependencies'
+import { getDependenciesVersion, addPackageJsonDependencies } from '../utility/dependencies'
 
 export default function(options: UpdateKarmaConfigOptions): Rule {
-  return (_tree: Tree, _context: SchematicContext) => {
-    return chain([
-      (_tree: Tree, context: SchematicContext) => {
-        !options.skipInstall ? context.addTask(new NodePackageInstallTask()) : noop()
-      },
-      addDependencies(),
-      updateKarmaConfig(),
-      updateTsConfigSpec()
-    ])
-  }
+  return chain([
+    (_tree: Tree, context: SchematicContext) => {
+      !options.skipInstall ? context.addTask(new NodePackageInstallTask()) : noop()
+    },
+    addDependencies(),
+    updateKarmaConfig(),
+    updateTsConfigSpec()
+  ])
 }
 
 function addDependencies(): Rule {
@@ -37,7 +35,8 @@ function addDependencies(): Rule {
     { name: 'karma-jasmine-given', version: '*', type: NodeDependencyType.Dev },
     { name: 'karma-mocha-reporter', version: '*', type: NodeDependencyType.Dev }
   ]
-  return addPackageJsonDependencies(dependencies)
+
+  return chain([getDependenciesVersion(dependencies), addPackageJsonDependencies(dependencies)])
 }
 
 function updateKarmaConfig(): Rule {

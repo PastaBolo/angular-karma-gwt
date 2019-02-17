@@ -1,6 +1,6 @@
 {
   "name": "angular-karma-gwt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Schematics to update the default karma config file created by the Angluar Cli to integrate jasmine-given and mocha-reporter.",
   "homepage": "https://github.com/PastaBolo/angular-karma-gwt",
   "scripts": {
